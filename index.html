@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashirwad Jewellers | Tradition & Elegance</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="preload" as="image" href="images/BrandLogo.webp" fetchpriority="high" imagesizes="100vw">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80" fetchpriority="high" imagesizes="100vw">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80" fetchpriority="high" imagesizes="100vw">
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload Google Fonts CSS -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap">
+    </noscript>
+
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --brand-red: #B22222;   /* Ashirwad Deep Red */
+            --brand-gold: #D4AF37;  /* Metallic Gold */
+            --brand-dark: #1A1A1A;  /* Soft Black */
+            --brand-cream: #f9f9f9; /* Soft White */
+            --brand-green: #2d5a27; /* Hallmark Green */
+            --btnHoverBG: #800000;
+            --btnHoverColor: #D4AF37;
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* NEW: Variable for header height calculation */
+            /* --header-height: 120px;  */
+        }
+
+        /* --- GLOBAL RESETS --- */
+        body {
+            background-color: var(--brand-cream);
+            color: #333;
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            background-image: radial-gradient(#c5a059 0.5px, transparent 0.5px), radial-gradient(#c5a059 0.5px, var(--brand-cream) 0.5px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            background-blend-mode: multiply;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: var(--font-head); color: var(--brand-red); font-weight: 700; }
+        .text-gold { color: var(--brand-gold) !important; }
+        
+        .bg-dark-texture { 
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); 
+            color: white; 
+            border-top: 1px solid var(--brand-gold);
+            border-bottom: 1px solid var(--brand-gold);
+        }
+        
+        .section-padding { padding: 90px 0; }
+        .section-title { margin-bottom: 60px; text-align: center; position: relative; }
+        .section-title h2 { font-size: 2.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--brand-red); }
+        .section-title span { font-family: 'Mrs Saint Delafield', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px; text-transform: uppercase;}
+        
+        .divider { display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+        .divider::before, .divider::after { content: ''; width: 80px; height: 1px; background: var(--brand-gold); display: inline-block; }
+        .divider i { margin: 0 20px; color: var(--brand-red); font-size: 1.4rem; }
+
+        /* --- BUTTONS --- */
+        .btn-pind {
+            background: var(--brand-red); color: white;
+            padding: 14px 35px; border-radius: 2px;
+            text-transform: uppercase; letter-spacing: 2px;
+            border: 1px solid var(--brand-red);
+            transition: all 0.4s ease;
+            font-weight: 600;
+            font-family: var(--font-head);
+        }
+        .btn-pind:hover {
+            background: var(--brand-gold); 
+            color: var(--brand-dark); 
+            border-color: var(--brand-gold);
+            transform: translateY(-2px);
+        }
+        .btn-gold-outline {
+            border: 1px solid var(--brand-gold); color: var(--brand-gold);
+            padding: 10px 25px; text-transform: uppercase; font-weight: bold;
+            background: transparent; transition: 0.3s;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+        .btn-check:checked+.btn.btn-pind, .btn.btn-pind.active, .btn.btn-pind.show, .btn.btn-pind:first-child:active, :not(.btn-check)+.btn.btn-pind:active{
+            background: var(--brand-gold); 
+            color: var(--brand-dark); 
+        }
+        #whatsappForm .btn-pind{ border-radius: 4px; }
+        #whatsappForm textarea{ resize: none; }
+        .btn-gold-outline:hover { background: var(--brand-gold); color: #000 !important; }
+        .btn-check:checked+.btn.btn-gold-outline, .btn.btn-gold-outline.active, .btn.btn-gold-outline.show, .btn.btn-gold-outline:first-child:active, :not(.btn-check)+.btn.btn-gold-outline:active{
+            background-color: var(--brand-gold);
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            padding: 1px 0; transition: 0.4s;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0));
+            height: var(--header-height); /* Set specific height */
+        }
+        .navbar.scrolled {
+            background: #0f0f0f;
+            padding: 1px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border-bottom: 1px solid var(--brand-gold);
+        }
+        img{
+            width: 100%;
+        }
+        .navbar-brand { 
+            width: 100px;
+         }
+        .footer-logo { 
+            width: 130px;
+         }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-left: 25px; position: relative; }
+        .navbar-nav .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--brand-gold); transition: 0.3s; }
+        .navbar-nav .nav-link:hover::after { width: 100%; }
+        .navbar-nav .nav-link:hover { color: var(--brand-gold) !important; }
+        .navbar-toggler{ background-color: var(--brand-gold); border: none; }
+
+        /* --- HERO (UPDATED WITH REFERENCE CODE) --- */
+        /* 1. Pull the hero up behind the navbar */
+        .hero-slider {
+            margin-top: calc(var(--header-height) * -1); 
+        }
+        
+        .hero-swiper {
+            width: 100%;
+            height: auto; 
+            min-height: 100vh; /* Ensures full screen on desktop */
+        }
+
+        .hero-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            
+            /* Allow height to grow beyond screen size if content needs it */
+            height: auto; 
+            min-height: 100vh; 
+            
+            /* Enable Flexbox for structure */
+            display: flex;
+            flex-direction: column; 
+            
+            /* Remove 'align-items: center' and use padding instead */
+            /* 130px ensures text starts BELOW header */
+            padding-top: 130px;  
+            padding-bottom: 60px;
+        }
+
+        .hero-overlay {
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Gradient to make text readable */
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        /* Container for the text inside the slide */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Sits above overlay */
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            padding: 0 15px;
+            
+            /* Smart Centering using margins */
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .hero-content h1 { font-size: 4.5rem; color: #fff; text-shadow: 0 5px 25px rgba(0,0,0,0.8); margin-bottom: 10px; }
+        .hero-content p { color: #f1f1f1; font-size: 1.5rem; margin-top: 10px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* 1. Hide navigation buttons by default (Mobile/Tablet) */
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: none !important;
+        }
+
+        /* 2. Show them only on Large devices (1024px and up) */
+        @media (min-width: 1024px) {
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: flex !important; /* or block */
+            }
+        }
+
+
+        /* --- STATS --- */
+        .stats-box { background: var(--brand-dark); padding: 60px 0; color: white; position: relative; margin-top: -60px; z-index: 10; border-top: 3px solid var(--brand-gold); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+        .stat-num { font-size: 3rem; font-family: var(--font-head); font-weight: 700; color: var(--brand-gold); display: block; margin-bottom: 5px; }
+
+        /* --- MENU SECTION (Collections) --- */
+        .nav-pills { row-gap: 15px; justify-content: center; margin-bottom: 40px; }
+        .nav-pills .nav-link {
+            background: transparent; color: #666; border: 1px solid #ddd;
+            border-radius: 0; margin: 0 8px; padding: 12px 30px;
+            font-family: var(--font-head); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .nav-pills .nav-link.active { background: var(--brand-red); color: white; border-color: var(--brand-red); }
+        .nav-pills .nav-link:hover:not(.active) { border-color: var(--brand-red); color: var(--brand-red); }
+        
+        .menu-card {
+            background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 0; overflow: hidden; height: 100%; transition: 0.4s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--brand-gold); }
+        .menu-img-box { position: relative; height: 280px; overflow: hidden; }
+        .menu-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+        .menu-card:hover .menu-img-box img { transform: scale(1.08); }
+
+        .swiper-pagination-bullet-active{ background: var(--brand-red); }
+        
+        .badge-jewel {
+            position: absolute; top: 15px; left: 15px; 
+            background: var(--brand-gold); color: black;
+            padding: 5px 12px; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .price { color: var(--brand-red); font-weight: 600; font-size: 1.1rem; margin-top: 5px; font-family: var(--font-body); }
+        .menu-card h4 { font-size: 1.3rem; margin-bottom: 5px; margin-top: 15px; }
+
+        /* --- TESTIMONIALS --- */
+        .testimonial-card {
+            background: white; padding: 50px 30px; border-radius: 4px; text-align: center;
+            border-bottom: 3px solid var(--brand-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\f10d'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+            font-size: 2rem; color: rgba(197, 160, 89, 0.2);
+        }
+        .form-control,.form-select{
+            border-radius: 0%;
+            border: none;
+            border-bottom: 1px solid var(--brand-gold);
+        }
+        .form-control:focus,.form-select:focus {
+            box-shadow: none;
+            border-color: var(--brand-red);
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #0a0a0a; color: #999; padding: 80px 0 0; border-top: 5px solid var(--brand-red); }
+        .footer-widget h4 { color: var(--brand-gold); margin-bottom: 30px; font-size: 1.4rem; letter-spacing: 1px; }
+        .footer-links li { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+        .footer-links a { color: #999; text-decoration: none; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links a:hover { color: var(--brand-gold); padding-left: 8px; }
+        .social-icons a { width: 45px; height: 45px; background: #222; display: inline-flex; align-items: center; justify-content: center; color: white; margin-right: 10px; border-radius: 50%; transition: 0.3s; text-decoration: none; border: 1px solid #333; }
+        .social-icons a:hover { background: var(--brand-gold); color: black; border-color: var(--brand-gold); }
+        .copyright { background: #000; padding: 25px 0; margin-top: 60px; font-size: 0.85rem; letter-spacing: 1px; border-top: 1px solid #222; }
+        .copyright a { color: #888; text-decoration: none; transition: 0.3s; }
+        .copyright a:hover { color: var(--brand-gold);}
+        
+        footer .container > .row{ justify-content: space-between; }
+        #about{ max-width: 100%; overflow-x: hidden; }
+        .reservCard{
+            position: relative;
+        }
+        .absAnchor{
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        @media (max-width: 991.98px) {  
+            .navbar-nav .nav-link { margin-left: 0; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .navbar-collapse{ padding: 20px; }
+            .navbar:not(.scrolled) .navbar-collapse{ background-color: #0f0f0fd9; backdrop-filter: blur(10px); }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+        @media(max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .stats-box { margin-top: 0; padding: 40px 0; }
+            .section-title h2 { font-size: 26px; }
+            .section-padding {padding: 60px 0;}
+            .nav-pills .nav-link { flex: 1 1 auto; font-size: 0.85rem; padding: 10px;}
+            .section-title span { font-size: 1rem;}
+        }
+        @media (max-width: 575.98px) { 
+            .hero-content h1 { font-size: 32px; }
+            .testimonial-card{padding: 30px 20px;}
+            .navbar-brand{ font-size: 1.4rem; }
+            footer .container > .row{ justify-content: center; align-items: baseline; text-align: center; }
+            #about .divider { justify-content: center !important; }
+            #about{ text-align: center; }
+            #about .section-title{ text-align: center !important; }
+            .col-md-6.ps-lg-5 { padding-left: 15px !important; padding-right: 15px !important; }
+            .btn-pind {
+            padding: 8px 24px; border-radius: 2px;
+            font-size: 14px;
+        }
+        .hero-content p{
+    font-size: 22px;
+    line-height: normal;
+}
+        }
+    </style>
+</head>
+<body id="home">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Ensure you replace this with the Ashirwad logo file or text -->
+                <img loading="eager" src="images/BrandLogo.webp" alt="Ashirwad Jewellers">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Legacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galleryNew">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#reservation" class="btn btn-gold-outline btn-sm">Visit Store</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-slider">
+        <div class="swiper heroSwiper hero-swiper">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80');">
+                    <div class="hero-overlay"></div>
+                    <div class="container py-5 hero-content">
+                        <h1 data-aos="fade-up">Ashirwad Jewellers</h1>
+                        <p data-aos="fade-up" data-aos-delay="200">Celebrating Tradition, Crafted over Generations</p>
+                        <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                            <a href="#menu" class="btn btn-pind">Explore Collections</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80');">
+                    <div class="hero-overlay"></div>
+                    <div class="container py-5 hero-content">
+                        <h1>Royal Artistry</h1>
+                        <p>Handcrafted Gold & Diamond Perfection</p>
+                        <div class="mt-4">
+                            <a href="#reservation" class="btn btn-pind">Visit Showroom</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-button-next text-gold"></div>
+            <div class="swiper-button-prev text-gold"></div>
+        </div>
+    </section>
+
+    <section class="stats-box">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stat-num" data-target="28">0</div>
+                    <p class="text-uppercase small ls-1 text-gold">Years of Legacy</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stat-num" data-target="100">0</div>
+                    <p class="text-uppercase small ls-1 text-gold">BIS Hallmark Purity</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="stat-num" data-target="5000">0</div>
+                    <p class="text-uppercase small ls-1 text-gold">Unique Designs</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-num" data-target="10000">0</div>
+                    <p class="text-uppercase small ls-1 text-gold">Happy Families</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&q=80" class="img-fluid shadow-lg" alt="Jewellery Making">
+                        <div class="bg-dark-texture p-4 position-absolute bottom-0 end-0 shadow" style="max-width: 250px; border: 1px solid var(--brand-gold);">
+                            <h4 class="text-gold mb-0">Since 1985</h4>
+                            <small class="text-white-50">A Legacy of Trust</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <div class="section-title text-start">
+                        <span>The Ashirwad Story</span>
+                        <h2>Honoring Tradition</h2>
+                        <div class="divider justify-content-start ms-0"><i class="fa-regular fa-gem"></i></div>
+                    </div>
+                    <p class="lead text-dark">Welcome to Ashirwad Jewellers, where every piece tells a story of heritage, purity, and unrivaled craftsmanship.</p>
+                    <p class="text-muted">For decades, we have been the preferred choice for families seeking authentic <strong>916 BIS Hallmarked Gold</strong> and exquisite diamond jewellery. Our showroom showcases a perfect blend of antique Jadau designs and modern contemporary styles, ensuring there is something special for every generation.</p>
+                    <a href="#menu" class="btn btn-pind mt-3">Discover Our Legacy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding "  style="background: #fdfbf7;">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <span>Timeless Beauty</span>
+                <h2>Our Collections</h2>
+                <div class="divider"><i class="fa-solid fa-crown"></i></div>
+            </div>
+
+            <div class="d-flex justify-content-center mb-5" data-aos="fade-up">
+                <div class="nav nav-pills" id="menu-tab" role="tablist">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#starters" type="button">Gold Collection</button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#main" type="button">Antique & Jadau</button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#breads" type="button">Vivah Collection</button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#drinks" type="button">Diamond & Silver</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="menu-tabContent">
+                
+                <div class="tab-pane fade show active" id="starters">
+                    <div class="swiper menuSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <div class="badge-jewel">New</div>
+                                        <img loading="lazy" src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80" alt="Gold Necklace">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Royal Gold Haar</h4>
+                                        <p class="text-muted small">22K Hallmarked traditional heavy necklace.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80" alt="Gold Bangles">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Kundan Bangles</h4>
+                                        <p class="text-muted small">Intricate filigree work with semi-precious stones.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://img.freepik.com/free-photo/young-indian-woman-wearing-sari_23-2149400870.jpg?w=800&quality=80" alt="Earrings" width="800">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Jhumkas</h4>
+                                        <p class="text-muted small">Classic temple design gold hanging earrings.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <div class="badge-jewel">Trending</div>
+                                        <img loading="lazy" src="https://img.freepik.com/free-photo/closeup-couple-golden-wedding-rings-with-diamond-sapphire-wooden-table_181624-20551.jpg?w=800&quality=80" alt="Ring">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Statement Rings</h4>
+                                        <p class="text-muted small">Bold designs for the modern woman.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4 position-relative"></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="main">
+                     <div class="swiper menuSwiper">
+                        <div class="swiper-wrapper">
+                             <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80" alt="Antique Necklace">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Jadau Choker</h4>
+                                        <p class="text-muted small">Vintage style choker with uncut polki.</p>
+                                        <div class="price">Best Seller</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="images/Mangalsutra.webp" alt="Antique Mangalsutra">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Antique Mangalsutra</h4>
+                                        <p class="text-muted small">Traditional black bead necklace with gold pendant.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="images/Bajubandh.webp" alt="Armlet">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Bajubandh</h4>
+                                        <p class="text-muted small">Traditional armlets for wedding attire.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4 position-relative"></div>
+                    </div>
+                </div>
+                
+                 <div class="tab-pane fade" id="breads">
+                     <div class="swiper menuSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <div class="badge-jewel">Premium</div>
+                                        <img loading="lazy" src="https://img.freepik.com/free-photo/traditional-indian-wedding-jewelry_8353-9762.jpg?w=800&quality=80" alt="Full Bridal Set">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Complete Bridal Set</h4>
+                                        <p class="text-muted small">Heavy necklace, earrings, and maang tikka.</p>
+                                        <div class="price">Enquire Now</div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&q=80" alt="Gold Mathapatti">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Mathapatti</h4>
+                                        <p class="text-muted small">Exquisite headgear for the bride.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4 position-relative"></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="drinks">
+                     <div class="swiper menuSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://img.freepik.com/free-photo/wedding-ring-bracelet_1303-11576.jpg?w=800&quality=80" alt="Diamond Ring">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Solitaire Rings</h4>
+                                        <div class="price">IGI Certified Diamonds</div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="swiper-slide">
+                                <div class="menu-card">
+                                    <div class="menu-img-box">
+                                        <img loading="lazy" src="https://img.freepik.com/free-photo/engagement-wedding-rings-with-precious-stones_8353-10191.jpg?w=800&quality=80" alt="Silver Anklet">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h4>Sterling Silver</h4>
+                                        <p class="text-muted small">Pooja articles and Payals.</p>
+                                        <div class="price">View in Store</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4 position-relative"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-dark-texture text-white">
+        <div class="container">
+            <div class="section-title">
+                <span>The Ashirwad Promise</span>
+                <h2 class="text-white">Why Choose Us</h2>
+                <div class="divider"><i class="fa-solid fa-star text-gold"></i></div>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <i class="fa-solid fa-award fa-3x text-gold mb-3"></i>
+                    <h4>BIS Hallmarked</h4>
+                    <p class="text-white-50 small">100% Assurance of purity with every purchase (916 Gold).</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fa-solid fa-compass-drafting fa-3x text-gold mb-3"></i>
+                    <h4>Custom Designs</h4>
+                    <p class="text-white-50 small">Bring your dream design to life with our skilled karigars.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fa-solid fa-hand-holding-dollar fa-3x text-gold mb-3"></i>
+                    <h4>Transparent Pricing</h4>
+                    <p class="text-white-50 small">Honest pricing with detailed breakup of making charges.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fa-solid fa-rotate fa-3x text-gold mb-3"></i>
+                    <h4>Easy Exchange</h4>
+                    <p class="text-white-50 small">Best exchange value for your old gold jewellery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galleryNew" class="section-padding">
+        <div class="container">
+             <div class="section-title">
+                <span>Visual Splendor</span>
+                <h2>Our Showroom</h2>
+                <div class="divider"><i class="fa-solid fa-camera"></i></div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <a href="https://img.freepik.com/free-photo/bright-metallic-jewelry-collection-reflects-glamour-wealth-generated-by-ai_188544-20609.jpg?w=1200&quality=100" data-fancybox="gallery" class="d-block h-100">
+                        <img loading="lazy" src="https://img.freepik.com/free-photo/bright-metallic-jewelry-collection-reflects-glamour-wealth-generated-by-ai_188544-20609.jpg?w=800&quality=80" class="img-fluid w-100 h-100" style="object-fit:cover;">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="https://img.freepik.com/free-photo/luxury-shine-diamonds-digital-art_23-2151695049.jpg?w=1200&quality=100" data-fancybox="gallery" class="d-block h-100">
+                        <img loading="lazy" src="https://img.freepik.com/free-photo/luxury-shine-diamonds-digital-art_23-2151695049.jpg?w=800&quality=80" class="img-fluid w-100 h-100" style="object-fit:cover;">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="https://img.freepik.com/free-photo/closeup-shot-two-diamond-rings-golden-surface_181624-60699.jpg?w=1200&quality=100" data-fancybox="gallery" class="d-block h-100">
+                        <img loading="lazy" src="https://img.freepik.com/free-photo/closeup-shot-two-diamond-rings-golden-surface_181624-60699.jpg?w=800&quality=80" class="img-fluid w-100 h-100" style="object-fit:cover;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: #fdfbf7;">
+        <div class="container">
+            <div class="section-title">
+                <span>Customer Love</span>
+                <h2>Testimonials</h2>
+                <div class="divider"><i class="fa-solid fa-quote-left"></i></div>
+            </div>
+            <div class="swiper testimonialSwiper pb-5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="fst-italic text-muted">"Ashirwad Jewellers has been our family jeweler for years. The purity is unmatched and their designs are always unique. Highly trustworthy!"</p>
+                            <h5 class="mb-0 mt-3 text-dark">Meera Patel</h5>
+                            <small class="text-gold">Loyal Customer</small>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="fst-italic text-muted">"Bought my bridal set from here. The craftsmanship is stunning and the staff was very cooperative in helping me select the perfect piece."</p>
+                            <h5 class="mb-0 mt-3 text-dark">Anjali Metha</h5>
+                            <small class="text-gold">Bride</small>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="fst-italic text-muted">"Amazing collection of rings and chains. Their making charges are very reasonable compared to other showrooms in Vadodara."</p>
+                            <h5 class="mb-0 mt-3 text-dark">Rohan Shah</h5>
+                            <small class="text-gold">Local Guide</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation" class="section-padding bg-dark-texture">
+        <div class="container">
+            <div class="row g-0 rounded overflow-hidden shadow-lg">
+                <div class="col-lg-5 p-md-5 p-sm-4 p-3" style="background: linear-gradient(135deg, #B22222 0%, #800000 100%);">
+                    <h3 class="text-white mb-4">Visit Our Store</h3>
+                    <div class="d-flex mb-4 reservCard">
+                        <i class="fa-solid fa-location-dot text-gold fs-4 me-3 mt-1"></i>
+                        <p class="text-white mb-0">Ashirwad Heights, RC Dutt Road, Alkapuri, Vadodara-390007</p>
+                        <a class="absAnchor" href="https://maps.google.com" target="_blank"></a>
+                    </div>
+                    <div class="d-flex mb-4 reservCard">
+                        <i class="fa-solid fa-phone text-gold fs-4 me-3 mt-1"></i>
+                        <p class="text-white mb-0">+91 98765 43210</p> 
+                        <a class="absAnchor" href="tel:+919876543210"></a>
+                    </div>
+                    <!-- <div class="d-flex mb-4 reservCard">
+                        <i class="fa-solid fa-envelope text-gold fs-4 me-3 mt-1"></i>
+                        <p class="text-white mb-0">contact@ashirwad.com</p>
+                        <a class="absAnchor" href="mailto:contact@ashirwad.com"></a>
+                    </div> -->
+                    <div class="d-flex mb-5">
+                        <i class="fa-solid fa-clock text-gold fs-4 me-3 mt-1"></i>
+                        <p class="text-white mb-0">Mon - Sun: 10:30 AM - 8:30 PM</p>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-gold-outline text-white border-white">
+                        Get Directions
+                    </a>
+                </div>
+
+                <div class="col-lg-7 p-md-5 p-sm-4 p-3 bg-white text-dark">
+                    <h3 class="mb-2">Book an Appointment</h3>
+                    <p class="text-muted mb-4">Plan your visit or request a video consultation via WhatsApp.</p>
+                    <form id="whatsappForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold">Name</label>
+                                <input type="text" id="wName" class="form-control bg-light" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold">Phone</label>
+                                <input type="tel" id="wPhone" class="form-control bg-light" required>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold">Estimated Budget</label>
+                                <select id="wBudget" class="form-select bg-light">
+                                    <option value="Not Decided">Not Decided</option>
+                                    <option value="Under 50k">Under ₹50,000</option>
+                                    <option value="50k-1L">₹50,000 - ₹1 Lakh</option>
+                                    <option value="1L-5L">₹1 Lakh - ₹5 Lakh</option>
+                                    <option value="5L+">Above ₹5 Lakh</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-bold">Interest</label>
+                                <select id="wOccasion" class="form-select bg-light">
+                                    <option value="Gold Jewellery">Gold Jewellery</option>
+                                    <option value="Bridal Set">Bridal Set</option>
+                                    <option value="Diamond Ring">Diamond/Solitaire</option>
+                                    <option value="Silver Articles">Silver Articles</option>
+                                    <option value="Repair/Exchange">Repair/Exchange</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label class="form-label small fw-bold">Message / Specific Requirement</label>
+                                <textarea id="wMessage" class="form-control bg-light" rows="2" placeholder="I am looking for..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-pind w-100">
+                            <i class="fa-brands fa-whatsapp me-2"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                                <a class="footer-brand" href="#">
+                <img loading="eager" src="images/BrandLogo.webp" class="footer-logo" alt="Ashirwad Jewellers">
+            </a>
+                    <p class="small mt-3 pe-lg-4">Your trusted partner for gold and diamond jewellery in Vadodara since 1985. Celebrating tradition with purity and trust.</p>
+                    <div class="social-icons mt-4">
+                        <a target="_blank" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.google.com/"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-4 mb-lg-0">
+                    <div class="footer-widget">
+                        <h4>Quick Links</h4>
+                        <ul class="list-unstyled footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">Our Legacy</a></li>
+                            <li><a href="#menu">Collections</a></li>
+                            <li><a href="#galleryNew">Showroom</a></li>
+                            <li><a href="#reservation">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-widget">
+                        <h4>Locate Us</h4>
+                        <div style="width: 100%; height: 150px; background: #222; border-radius: 2px; overflow: hidden; border: 1px solid #333;">
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.412368167535!2d73.20663277586644!3d22.300239042896578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5f95555555%3A0x7574e908feba7067!2sChakabhai%20Jewellers%20-%20Gold%20jewellery%20in%20Vadodara%20%7C%20Bridal%20jewellery%20Vadodara%20%7C%20Best%20Jewellery%20Showroom%20in%20Vadodara!5e0!3m2!1sen!2sin!4v1768881656835!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="mb-0">© <span id="currunt-year"></span> Chakabhai Jewellers. All Rights Reserved. Designed with Shriii&nbsp;Tracking&nbsp;Solution</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // 1. Initialize Animation Library
+        AOS.init({ duration: 1000, once: true });
+
+        // 2. Initialize Lightbox
+        Fancybox.bind("[data-fancybox]", {});
+
+        // 3. Navbar Sticky Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Hero Slider
+        new Swiper('.heroSwiper', {
+            loop: true,
+            effect: 'fade',
+            speed: 1500,
+            autoplay: { delay: 6000 },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+                enabled: true, // Enabled for all screens
+            },
+        });
+
+        // 5. Menu Swiper Logic
+        new Swiper('.menuSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            observer: true, 
+            observeParents: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                992: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 }
+            }
+        });
+
+
+        // 6. Testimonial Slider
+        new Swiper('.testimonialSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: { delay: 5000 },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                992: { slidesPerView: 3 }
+            }
+        });
+
+        // 7. WhatsApp Reservation Form (UPDATED)
+document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent page reload
+
+    // --- Configuration ---
+    const targetPhone = "918849172486"; // Chakabhai Jewellers
+
+    // --- 1. Gather Data (with .trim() to clean whitespace) ---
+    const name = document.getElementById('wName').value.trim();
+    const phone = document.getElementById('wPhone').value.trim();
+    
+    // For Select inputs, we usually want the Value, but if you want the Text:
+    const budget = document.getElementById('wBudget').value; 
+    const interest = document.getElementById('wOccasion').value; 
+    const msg = document.getElementById('wMessage').value.trim();
+
+    // --- 2. Validation (From Reference) ---
+    // Ensure the user at least provided a name and phone number
+    if (!name || !phone) {
+        alert("Please enter at least your Name and Phone Number to send an inquiry.");
+        return;
+    }
+
+    // --- 3. Format the Message ---
+    // We use standard newlines (\n) here, because we encode them later
+    let msgText = `*New Customer Inquiry*`;
+    msgText += `\n\n*Name:* ${name}`;
+    msgText += `\n*Phone:* ${phone}`;
+    msgText += `\n*Budget:* ${budget || 'Not specified'}`; // Fallback if empty
+    msgText += `\n*Interested In:* ${interest || 'General'}`; // Fallback if empty
+    msgText += `\n*Message:* ${msg}`;
+
+    // --- 4. Create Link & Encode (Critical Step) ---
+    // encodeURIComponent handles special chars (like &, +, space, and enters) properly
+    const encodedMsg = encodeURIComponent(msgText);
+    
+    // logic from reference: check window width for mobile vs desktop
+    const isMobile = window.innerWidth < 992; 
+    
+    const url = isMobile 
+        ? `https://wa.me/${targetPhone}?text=${encodedMsg}`
+        : `https://web.whatsapp.com/send?phone=${targetPhone}&text=${encodedMsg}`;
+
+    // --- 5. Open WhatsApp ---
+    window.open(url, '_blank');
+
+    // --- 6. Clear form after delay (From Reference) ---
+    setTimeout(() => {
+        document.getElementById('whatsappForm').reset();
+    }, 2000);
+});
+
+        // 8. Stats Counter Animation
+        const statsSection = document.querySelector('.stats-box');
+        const counters = document.querySelectorAll('.stat-num');
+        let started = false;
+
+        const startCount = (el) => {
+            const target = +el.getAttribute('data-target');
+            const duration = 2000; 
+            const increment = target / (duration / 20); 
+            
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                if(current >= target) {
+                    el.innerText = target + "+";
+                    clearInterval(timer);
+                } else {
+                    el.innerText = Math.ceil(current);
+                }
+            }, 20);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !started) {
+                counters.forEach(num => startCount(num));
+                started = true;
+            }
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+    </script>
+
+    <script>
+        const curruntYear = new Date().getFullYear();
+        document.getElementById('currunt-year').innerText = curruntYear;
+    </script>
+</body>
+</html>

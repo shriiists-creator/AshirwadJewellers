@@ -34,50 +34,20 @@
     <style>
         /* --- BRAND VARIABLES --- */
         :root {
-  /* === LOGO COLORS (REFINED FOR LUXURY) === */
-  --brand-red: #b1121a;         /* Logo Red (CTA / Brand) */
-  --brand-orange: #f27c22;     /* Logo Orange (Accent) */
-  --brand-blue: #1f5fa8;       /* Logo Blue (Navigation / Trust) */
-  --brand-green: #2f8f4e;      /* Logo Green (BIS / Trust) */
-  --brand-gray:#626262;
-
-    --brand-gold: #d4af37;      /* Jewellery gold (visual luxury) */
-  --brand-gold-soft: #e6c86e;
-
-  /* === LUXURY BASE COLORS === */
-  --brand-dark: #0b0b0b;       /* Premium Black */
-  --brand-dark-soft: #151515;
-  --brand-white: #ffffff;
-  --brand-cream: #fbf8f2;
-
-  /* === GOLD SUPPORT (JEWELLERY MUST HAVE THIS) === */
-  --brand-gold: #d4af37;
-  --brand-gold-soft: #e6c86e;
-
-  /* === TEXT COLORS === */
-  --text-dark: #1a1a1a;
-  --text-muted: #6f6f6f;
-  --text-light: #e5e5e5;
-
-  /* === BUTTON STATES === */
-  --btnHoverBG: var(--brand-gray);
-  --btnHoverColor: #ffffff;
-
-  /* === FONTS (UPDATED) === */
-  --font-head: 'Cormorant Garamond', serif;
-  --font-body: 'Inter', sans-serif;
-
-  /* === BRIGHT MODE BACKGROUNDS === */
---bg-bright: #ffffff;
---bg-soft: #fdfbf7;
-
-/* === GRADIENTS === */
---grad-blue: linear-gradient(135deg, #1f5fa8 0%, #153f73 100%);
---grad-orange: linear-gradient(135deg, #f27c22 0%, #c95f12 100%);
---grad-light: linear-gradient(180deg, #ffffff 0%, #f7f4ee 100%);
-  /* --header-height: 120px; */
-}
-
+            --brand-red: #B22222;   /* Ashirwad Deep Red */
+            --brand-gold: #D4AF37;  /* Metallic Gold */
+            --brand-dark: #1A1A1A;  /* Soft Black */
+            --brand-cream: #f9f9f9; /* Soft White */
+            --brand-green: #2d5a27; /* Hallmark Green */
+            --btnHoverBG: #800000;
+            --btnHoverColor: #D4AF37;
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* NEW: Variable for header height calculation */
+            /* --header-height: 120px;  */
+        }
 
         /* --- GLOBAL RESETS --- */
         body {
@@ -91,7 +61,7 @@
             background-blend-mode: multiply;
         }
 
-        h1, h2, h3, h4, h5 { font-family: var(--font-head); color: var(--brand-orange); font-weight: 700; }
+        h1, h2, h3, h4, h5 { font-family: var(--font-head); color: var(--brand-red); font-weight: 700; }
         .text-gold { color: var(--brand-gold) !important; }
         
         .bg-dark-texture { 
@@ -103,19 +73,19 @@
         
         .section-padding { padding: 90px 0; }
         .section-title { margin-bottom: 60px; text-align: center; position: relative; }
-        .section-title h2 { font-size: 2.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--brand-orange); }
-        .section-title span { font-family: 'Mrs Saint Delafield', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--brand-gray); display: block; margin-bottom: 10px; text-transform: uppercase;}
+        .section-title h2 { font-size: 2.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--brand-red); }
+        .section-title span { font-family: 'Mrs Saint Delafield', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px; text-transform: uppercase;}
         
         .divider { display: flex; align-items: center; justify-content: center; margin-top: 20px; }
-        .divider::before, .divider::after { content: ''; width: 80px; height: 1px; background: var(--brand-gray); display: inline-block; }
-        .divider i { margin: 0 20px; color: var(--brand-orange); font-size: 1.4rem; }
+        .divider::before, .divider::after { content: ''; width: 80px; height: 1px; background: var(--brand-gold); display: inline-block; }
+        .divider i { margin: 0 20px; color: var(--brand-red); font-size: 1.4rem; }
 
         /* --- BUTTONS --- */
         .btn-pind {
-            background: var(--brand-orange); color: white;
+            background: var(--brand-red); color: white;
             padding: 14px 35px; border-radius: 2px;
             text-transform: uppercase; letter-spacing: 2px;
-            border: 1px solid var(--brand-orange);
+            border: 1px solid var(--brand-red);
             transition: all 0.4s ease;
             font-weight: 600;
             font-family: var(--font-head);
@@ -147,15 +117,14 @@
         /* --- NAVBAR --- */
         .navbar {
             padding: 1px 0; transition: 0.4s;
-            background: var(--bg-bright);
-  border-bottom: 1px solid #eee;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0));
             height: var(--header-height); /* Set specific height */
         }
         .navbar.scrolled {
-              background: var(--bg-bright);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  border-bottom: 2px solid var(--brand-orange);
+            background: #0f0f0f;
             padding: 1px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border-bottom: 1px solid var(--brand-gold);
         }
         img{
             width: 100%;
@@ -166,10 +135,10 @@
         .footer-logo { 
             width: 130px;
          }
-        .navbar-nav .nav-link {color: var(--text-dark) !important; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-left: 25px; position: relative; }
-        .navbar-nav .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--brand-orange); transition: 0.3s; }
+        .navbar-nav .nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-left: 25px; position: relative; }
+        .navbar-nav .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--brand-gold); transition: 0.3s; }
         .navbar-nav .nav-link:hover::after { width: 100%; }
-        .navbar-nav .nav-link:hover {  color: var(--brand-orange) !important; }
+        .navbar-nav .nav-link:hover { color: var(--brand-gold) !important; }
         .navbar-toggler{ background-color: var(--brand-gold); border: none; }
 
         /* --- HERO (UPDATED WITH REFERENCE CODE) --- */
@@ -207,12 +176,7 @@
             position: absolute; 
             top: 0; left: 0; width: 100%; height: 100%;
             /* Gradient to make text readable */
-            background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.85) 0%,
-    rgba(255,255,255,0.4) 60%,
-    rgba(255,255,255,0.1) 100%
-  );
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
             z-index: 1;
         }
 
@@ -222,7 +186,7 @@
             z-index: 2; /* Sits above overlay */
             width: 100%;
             text-align: center;
-            color: var(--text-dark);
+            color: #fff;
             padding: 0 15px;
             
             /* Smart Centering using margins */
@@ -230,8 +194,8 @@
             margin-bottom: auto;
         }
 
-        .hero-content h1 { font-size: 4.5rem;   color: var(--brand-blue); text-shadow: none; margin-bottom: 10px; }
-        .hero-content p { color: var(--brand-gray); font-size: 1.5rem; margin-top: 10px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+        .hero-content h1 { font-size: 4.5rem; color: #fff; text-shadow: 0 5px 25px rgba(0,0,0,0.8); margin-bottom: 10px; }
+        .hero-content p { color: #f1f1f1; font-size: 1.5rem; margin-top: 10px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
 
         /* 1. Hide navigation buttons by default (Mobile/Tablet) */
         .swiper-button-next,
@@ -242,60 +206,6 @@
         /* .form-icon{
             font-size: 24px;
         } */
-         .fa-award {
-  color: var(--brand-green);
-}
-
-/* === WHY CHOOSE US – BRIGHT CARD STYLE === */
-section.bg-dark-texture {
-  background: #ffffff !important;
-  color: var(--text-dark);
-  border: none;
-  position: relative;
-}
-
-/* Soft orange glow behind section */
-section.bg-dark-texture::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-section.bg-dark-texture .container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Headings */
-section.bg-dark-texture h2 {
-  color: var(--brand-orange);
-}
-
-section.bg-dark-texture h4 {
-  color: var(--text-dark);
-}
-
-/* Text */
-section.bg-dark-texture p {
-  color: var(--brand-gray);
-}
-
-/* Icons */
-section.bg-dark-texture i {
-  color: var(--brand-orange) !important;
-}
-
-
-#reservation .col-lg-5 {
-  background: var(--grad-orange) !important;
-}
-
-
-#reservation .col-lg-7 {
-  background: #ffffff;
-}
-
 
         /* 2. Show them only on Large devices (1024px and up) */
         @media (min-width: 1024px) {
@@ -307,9 +217,8 @@ section.bg-dark-texture i {
 
 
         /* --- STATS --- */
-        .stats-box {   background: var(--grad-light); color: var(--text-dark); border-top: 2px solid var(--brand-orange); box-shadow: 0 10px 40px rgba(0,0,0,0.06); padding: 60px 0; position: relative; margin-top: -60px; z-index: 10; }
-        .stats-box p {color: var(--brand-gray);}
-        .stat-num { font-size: 3rem; font-family: var(--font-head); font-weight: 700; color: var(--brand-blue); display: block; margin-bottom: 5px; }
+        .stats-box { background: var(--brand-dark); padding: 60px 0; color: white; position: relative; margin-top: -60px; z-index: 10; border-top: 3px solid var(--brand-gold); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+        .stat-num { font-size: 3rem; font-family: var(--font-head); font-weight: 700; color: var(--brand-gold); display: block; margin-bottom: 5px; }
 
         /* --- MENU SECTION (Collections) --- */
         .nav-pills { row-gap: 15px; justify-content: center; margin-bottom: 40px; }
@@ -320,8 +229,8 @@ section.bg-dark-texture i {
             text-transform: uppercase; letter-spacing: 1px;
             transition: all 0.3s;
         }
-        .nav-pills .nav-link.active { background: var(--brand-orange); color: white; border-color: var(--brand-orange); }
-        .nav-pills .nav-link:hover:not(.active) { border-color: var(--brand-orange); color: var(--brand-orange); }
+        .nav-pills .nav-link.active { background: var(--brand-red); color: white; border-color: var(--brand-red); }
+        .nav-pills .nav-link:hover:not(.active) { border-color: var(--brand-red); color: var(--brand-red); }
         
         .menu-card {
             background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -333,17 +242,17 @@ section.bg-dark-texture i {
         .menu-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
         .menu-card:hover .menu-img-box img { transform: scale(1.08); }
 
-        .swiper-pagination-bullet-active{ background: var(--brand-orange); }
+        .swiper-pagination-bullet-active{ background: var(--brand-red); }
         
         .badge-jewel {
             position: absolute; top: 15px; left: 15px; 
-            background: var(--brand-orange); color: black;
+            background: var(--brand-gold); color: black;
             padding: 5px 12px; font-size: 0.7rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1px;
             z-index: 2;
         }
 
-        .price { color: var(--brand-orange); font-weight: 600; font-size: 1.1rem; margin-top: 5px; font-family: var(--font-body); }
+        .price { color: var(--brand-red); font-weight: 600; font-size: 1.1rem; margin-top: 5px; font-family: var(--font-body); }
         .menu-card h4 { font-size: 1.3rem; margin-bottom: 5px; margin-top: 15px; }
 
         /* --- TESTIMONIALS --- */
@@ -365,18 +274,18 @@ section.bg-dark-texture i {
         }
         .form-control:focus,.form-select:focus {
             box-shadow: none;
-            border-color: var(--brand-orange);
+            border-color: var(--brand-red);
         }
 
         /* --- FOOTER --- */
-        footer {   background: var(--bg-soft); color: var(--text-dark); border-top: 3px solid var(--brand-orange); padding: 80px 0 0; }
-        .footer-widget h4 { color: var(--brand-blue); margin-bottom: 30px; font-size: 1.4rem; letter-spacing: 1px; }
+        footer { background: #0a0a0a; color: #999; padding: 80px 0 0; border-top: 5px solid var(--brand-red); }
+        .footer-widget h4 { color: var(--brand-gold); margin-bottom: 30px; font-size: 1.4rem; letter-spacing: 1px; }
         .footer-links li { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
-        .footer-links a { color: var(--brand-gray);; text-decoration: none; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-links a:hover { color: var(--brand-orange); padding-left: 8px; }
+        .footer-links a { color: #999; text-decoration: none; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links a:hover { color: var(--brand-gold); padding-left: 8px; }
         .social-icons a { width: 45px; height: 45px; background: #222; display: inline-flex; align-items: center; justify-content: center; color: white; margin-right: 10px; border-radius: 50%; transition: 0.3s; text-decoration: none; border: 1px solid #333; }
         .social-icons a:hover { background: var(--brand-gold); color: black; border-color: var(--brand-gold); }
-        .copyright {   background: #ffffff; border-top: 1px solid #eee; color: var(--brand-gray); padding: 25px 0; margin-top: 60px; font-size: 0.85rem; letter-spacing: 1px; }
+        .copyright { background: #000; padding: 25px 0; margin-top: 60px; font-size: 0.85rem; letter-spacing: 1px; border-top: 1px solid #222; }
         .copyright a { color: #888; text-decoration: none; transition: 0.3s; }
         .copyright a:hover { color: var(--brand-gold);}
         
@@ -392,15 +301,9 @@ section.bg-dark-texture i {
         }
 
         @media (max-width: 991.98px) {  
-              .navbar-nav .nav-link {
-    color: var(--text-dark) !important;
-    border-bottom: 1px solid #eee;
-  }
+            .navbar-nav .nav-link { margin-left: 0; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
             .navbar-collapse{ padding: 20px; }
-              .navbar:not(.scrolled) .navbar-collapse {
-    background: var(--bg-bright);
-    backdrop-filter: none;
-  }
+            .navbar:not(.scrolled) .navbar-collapse{ background-color: #0f0f0fd9; backdrop-filter: blur(10px); }
             .hero-content h1 { font-size: 3.5rem; }
         }
         @media(max-width: 768px) {
@@ -461,7 +364,7 @@ section.bg-dark-texture i {
         <div class="swiper heroSwiper hero-swiper">
             <div class="swiper-wrapper">
                 
-                <div class="swiper-slide hero-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1661645433820-24c8604e4db5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1659095141570-be8b9aff59ce?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
                     <div class="hero-overlay"></div>
                     <div class="container py-5 hero-content">
                         <h1 data-aos="fade-up">Ashirwad Jewellers</h1>
@@ -472,7 +375,7 @@ section.bg-dark-texture i {
                     </div>
                 </div>
 
-                <div class="swiper-slide hero-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1708711288213-1726e476ce74?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80');">
                     <div class="hero-overlay"></div>
                     <div class="container py-5 hero-content">
                         <h1>Royal Artistry</h1>
@@ -731,8 +634,8 @@ section.bg-dark-texture i {
         <div class="container">
             <div class="section-title">
                 <span>The Ashirwad Promise</span>
-                <h2>Why Choose Us</h2>
-                <div class="divider"><i class="fa-solid fa-star"></i></div>
+                <h2 class="text-white">Why Choose Us</h2>
+                <div class="divider"><i class="fa-solid fa-star text-gold"></i></div>
             </div>
             <div class="row text-center g-4">
                 <div class="col-md-3">
@@ -825,8 +728,7 @@ section.bg-dark-texture i {
     <section id="reservation" class="section-padding bg-dark-texture">
         <div class="container">
             <div class="row g-0 rounded overflow-hidden shadow-lg">
-                <div class="col-lg-5 p-md-5 p-sm-4 p-3" style="background: linear-gradient(135deg, #f27c22 0%, #c95f12 100%);
-">
+                <div class="col-lg-5 p-md-5 p-sm-4 p-3" style="background: linear-gradient(135deg, #B22222 0%, #800000 100%);">
                     <h3 class="text-white mb-4">Visit Our Store</h3>
                     <div class="d-flex mb-4 reservCard">
                         <i class="fa-solid fa-location-dot text-gold fs-5 me-3"></i>
